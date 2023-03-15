@@ -6,7 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="225dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="EXPLORE"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleviewmustgo" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="42dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,8 +65,9 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="414dp"
-        android:layout_height="87dp"
+        android:id="@+id/constraintLayout"
+        android:layout_width="413dp"
+        android:layout_height="59dp"
         android:background="@android:color/holo_green_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,14 +78,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="181dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="175dp"
             android:text="Welcome"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.565"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleviewmustgo"
+        android:layout_width="414dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="86dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Must Try"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleviewexpore"
+        android:layout_width="410dp"
+        android:layout_height="258dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
