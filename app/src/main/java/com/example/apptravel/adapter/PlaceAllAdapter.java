@@ -16,33 +16,30 @@ import com.example.apptravel.models.Place;
 
 import java.util.List;
 
-public class PlaceExploreAdapter extends RecyclerView.Adapter<PlaceExploreAdapter.PlaceExploreViewHolder> {
+public class PlaceAllAdapter extends RecyclerView.Adapter<PlaceAllAdapter.PlaceAllViewHolder> {
     private Context context;
     private List<Place> ListPlace;
 
-    public PlaceExploreAdapter(Context context, List<Place> listPlace) {
+    public PlaceAllAdapter(Context context, List<Place> listPlace) {
         this.context = context;
         ListPlace = listPlace;
     }
-    public void setData (List<Place> lstTourism) {
-        this.ListPlace = lstTourism;
-        notifyDataSetChanged();
-    }
+
     @NonNull
     @Override
-    public PlaceExploreAdapter.PlaceExploreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_place_explore,parent,false);
-        return new PlaceExploreAdapter.PlaceExploreViewHolder(view);
+    public PlaceAllViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_all,parent,false);
+        return new PlaceAllAdapter.PlaceAllViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlaceExploreAdapter.PlaceExploreViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PlaceAllViewHolder holder, int position) {
         Place place =ListPlace.get(position);
         if (place == null)
             return;
         holder.imgPlace.setImageResource(context.getResources().getIdentifier(place.getAvatar(),"drawable",context.getPackageName()));
         holder.txtNamePlace.setText(place.getPlaceName());
-        holder.txtAddress.setText(place.getAddress());
+        holder.txtPlaceAddress.setText(place.getAddress());
         holder.Place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,17 +54,19 @@ public class PlaceExploreAdapter extends RecyclerView.Adapter<PlaceExploreAdapte
             return ListPlace.size();
         return 0;
     }
-    public class PlaceExploreViewHolder extends RecyclerView.ViewHolder {
+
+
+    public class PlaceAllViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgPlace;
         private TextView txtNamePlace;
-        private TextView txtAddress;
+        private TextView txtPlaceAddress;
         private CardView Place;
-        public PlaceExploreViewHolder(@NonNull View itemView) {
+        public PlaceAllViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgPlace = itemView.findViewById(R.id.imgPlaceExplore);
-            txtNamePlace = itemView.findViewById(R.id.txtPlaceNameExplore);
-            txtAddress = itemView.findViewById(R.id.txtCityExplore);
-            Place = itemView.findViewById(R.id.PlaceExplorer);
+            Place = itemView.findViewById(R.id.itemall);
+            imgPlace = itemView.findViewById(R.id.imgItemAll);
+            txtNamePlace = itemView.findViewById(R.id.txtNameAll);
+            txtPlaceAddress = itemView.findViewById(R.id.txtAddressAll);
         }
     }
 }

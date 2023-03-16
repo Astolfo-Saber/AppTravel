@@ -6,12 +6,12 @@ public class Food {
     private String address;
     private String image;
     private String detail;
-    private String cityId;
+    private int cityId;
 
     public Food() {
     }
 
-    public Food(int foodId, String foodName, String address, String image, String detail, String cityId) {
+    public Food(int foodId, String foodName, String address, String image, String detail, int cityId) {
         this.foodId = foodId;
         this.foodName = foodName;
         this.address = address;
@@ -40,7 +40,7 @@ public class Food {
         return detail;
     }
 
-    public String getCityId() {
+    public int getCityId() {
         return cityId;
     }
 
@@ -64,7 +64,7 @@ public class Food {
         this.detail = detail;
     }
 
-    public void setCityId(String cityId) {
+    public void setCityId(int cityId) {
         this.cityId = cityId;
     }
 }

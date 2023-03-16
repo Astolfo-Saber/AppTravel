@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,7 +49,13 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
             return;
         holder.imgPlace.setImageResource(context.getResources().getIdentifier(place.getAvatar(),"drawable",context.getPackageName()));
         holder.txtNamePlace.setText(place.getPlaceName());
-        holder.txtCity.setText(place.getAddress());
+        holder.txtAddress.setText(place.getAddress());
+        holder.Place.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -61,12 +68,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     public class PlaceViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgPlace;
         private TextView txtNamePlace;
-        private TextView txtCity;
+        private TextView txtAddress;
+        private CardView Place;
         public PlaceViewHolder(@NonNull View itemView) {
             super(itemView);
             imgPlace = itemView.findViewById(R.id.imgPlace);
             txtNamePlace = itemView.findViewById(R.id.txtPlaceName);
-            txtCity = itemView.findViewById(R.id.txtCity);
+            txtAddress = itemView.findViewById(R.id.txtCity);
+            Place = itemView.findViewById(R.id.Placemustgo);
         }
     }
 }

@@ -7,12 +7,12 @@ public class HomeStay {
     private String image;
     private String detail;
     private String contact;
-    private String cityId;
+    private int cityId;
 
     public HomeStay(){
 
     }
-    public HomeStay(int homeStayId, String homeStayName, String address, String image, String detail, String contact, String cityId) {
+    public HomeStay(int homeStayId, String homeStayName, String address, String image, String detail, String contact, int cityId) {
         this.homeStayId = homeStayId;
         this.homeStayName = homeStayName;
         this.address = address;
@@ -46,7 +46,7 @@ public class HomeStay {
         return contact;
     }
 
-    public String getCityId() {
+    public int getCityId() {
         return cityId;
     }
 
@@ -74,7 +74,7 @@ public class HomeStay {
         this.contact = contact;
     }
 
-    public void setCityId(String cityId) {
+    public void setCityId(int cityId) {
         this.cityId = cityId;
     }
 }
