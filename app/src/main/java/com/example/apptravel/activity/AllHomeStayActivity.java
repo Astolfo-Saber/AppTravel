@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.apptravel.database.Database;
@@ -15,6 +18,7 @@ import com.example.apptravel.R;
 import com.example.apptravel.adapter.HomeStayAdapter;
 import com.example.apptravel.models.HomeStay;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllHomeStayActivity extends AppCompatActivity {
@@ -26,6 +30,7 @@ public class AllHomeStayActivity extends AppCompatActivity {
     private ImageView imgFood;
     private ImageView imgPlace;
     private ImageView imgMenu;
+    private EditText etSearch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,7 @@ public class AllHomeStayActivity extends AppCompatActivity {
         imgPlace = findViewById(R.id.Place);
         imgFood = findViewById(R.id.Food);
         imgMenu = findViewById(R.id.Menu);
+        etSearch = findViewById(R.id.txtSearchAllPlace);
     }
 
     private void addData(){
@@ -81,5 +87,30 @@ public class AllHomeStayActivity extends AppCompatActivity {
                 finish();
             }
         });
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+    public void filter(String search) {
+        List<HomeStay> HomeStayFilter = new ArrayList<>();
+        for (HomeStay homeStay : ListHomeStay) {
+            if ((homeStay.getHomeStayName().toLowerCase().contains(search.toLowerCase()))) {
+                HomeStayFilter.add(homeStay);
+            }
+        }
+        homeStayAdapter.filterHomeStay(HomeStayFilter);
     }
 }

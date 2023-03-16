@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.apptravel.database.Database;
@@ -15,6 +18,7 @@ import com.example.apptravel.R;
 import com.example.apptravel.adapter.PlaceAllAdapter;
 import com.example.apptravel.models.Place;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllPlaceActivity extends AppCompatActivity {
@@ -26,6 +30,7 @@ public class AllPlaceActivity extends AppCompatActivity {
     private ImageView imgFood;
     private ImageView imgHomeStay;
     private ImageView imgMenu;
+    private EditText etSearch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,7 @@ public class AllPlaceActivity extends AppCompatActivity {
         imgFood = findViewById(R.id.Food);
         imgHomeStay = findViewById(R.id.HomeStay);
         imgMenu = findViewById(R.id.Menu);
+        etSearch = findViewById(R.id.txtSearchAllPlace);
     }
 
     private void addData(){
@@ -81,5 +87,30 @@ public class AllPlaceActivity extends AppCompatActivity {
                 finish();
             }
         });
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+    public void filter (String search) {
+        List<Place> PlaceFilter = new ArrayList<>();
+        for (Place place : ListPlace) {
+            if ((place.getPlaceName().toLowerCase().contains(search.toLowerCase()))) {
+                PlaceFilter.add(place);
+            }
+        }
+        placeAllAdapter.filterPlace(PlaceFilter);
     }
 }

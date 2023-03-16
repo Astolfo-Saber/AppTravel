@@ -56,6 +56,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         return 0;
     }
 
+    public void filterFood (List<Food> filterFood) {
+        ListFood = filterFood;
+        notifyDataSetChanged();
+    }
+
     public class FoodViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageFood;
         private TextView txtFoodName;
