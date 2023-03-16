@@ -28,35 +28,35 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/btnHome"
+            android:id="@+id/Home"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/icons8_home_50___" />
 
         <ImageView
-            android:id="@+id/btnPlace"
+            android:id="@+id/Place"
             android:layout_width="74dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/icons8_eiffel_tower_30___" />
 
         <ImageView
-            android:id="@+id/btnFood"
+            android:id="@+id/Food"
             android:layout_width="71dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/icons8_guacamole_30___" />
 
         <ImageView
-            android:id="@+id/btnHomeStay"
+            android:id="@+id/HomeStay"
             android:layout_width="56dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/icons8_5_star_hotel_25___" />
 
         <ImageView
-            android:id="@+id/btnMenu"
+            android:id="@+id/Menu"
             android:layout_width="52dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -1,86 +1,72 @@
 package com.example.apptravel.adapter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Filter;
-import android.widget.Filterable;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.apptravel.R;
+import com.example.apptravel.models.Food;
 import com.example.apptravel.models.HomeStay;
+import com.example.apptravel.models.Place;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class HomeStayAdapter extends BaseAdapter implements Filterable {
-    private ArrayList<HomeStay> data;
-    private ArrayList<HomeStay> dataBackup;
-    private Activity context;
-    private LayoutInflater inflater;
+public class HomeStayAdapter extends RecyclerView.Adapter<HomeStayAdapter.HomeStayViewHolder> {
+    private Context context;
+    private List<HomeStay> ListHomeStay;
 
-    public HomeStayAdapter() {
-    }
-
-    public HomeStayAdapter(ArrayList<HomeStay> data, Activity context, LayoutInflater inflater) {
-        this.data = data;
+    public HomeStayAdapter(Context context, List<HomeStay> listHomeStay) {
         this.context = context;
-        this.inflater = inflater;
+        ListHomeStay = listHomeStay;
     }
-
-    public ArrayList<HomeStay> getData() {
-        return data;
-    }
-
-    public void setData(ArrayList<HomeStay> data) {
-        this.data = data;
-    }
-
-    public ArrayList<HomeStay> getDataBackup() {
-        return dataBackup;
-    }
-
-    public void setDataBackup(ArrayList<HomeStay> dataBackup) {
-        this.dataBackup = dataBackup;
-    }
-
-    public Activity getContext() {
-        return context;
-    }
-
-    public void setContext(Activity context) {
-        this.context = context;
-    }
-
-    public LayoutInflater getInflater() {
-        return inflater;
-    }
-
-    public void setInflater(LayoutInflater inflater) {
-        this.inflater = inflater;
+    @NonNull
+    @Override
+    public HomeStayViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_all,parent,false);
+        return new HomeStayAdapter.HomeStayViewHolder(view);
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull HomeStayViewHolder holder, int position) {
+        HomeStay homeStay =ListHomeStay.get(position);
+        if (homeStay == null)
+            return;
+        holder.imgHomeStay.setImageResource(context.getResources().getIdentifier(homeStay.getImage(),"drawable",context.getPackageName()));
+        holder.txtHomeStayName.setText(homeStay.getHomeStayName());
+        holder.txtHomeStayAddress.setText(homeStay.getAddress());
+        holder.HomeStay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        if (ListHomeStay!=null)
+            return ListHomeStay.size();
         return 0;
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
-    }
-
-    @Override
-    public Filter getFilter() {
-        return null;
+    public class HomeStayViewHolder extends RecyclerView.ViewHolder {
+        private ImageView imgHomeStay;
+        private TextView txtHomeStayName;
+        private TextView txtHomeStayAddress;
+        private CardView HomeStay;
+        public HomeStayViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imgHomeStay = itemView.findViewById(R.id.imgItemAll);
+            txtHomeStayName = itemView.findViewById(R.id.txtNameAll);
+            txtHomeStayAddress = itemView.findViewById(R.id.txtAddressAll);
+            HomeStay = itemView.findViewById(R.id.itemall);
+        }
     }
 }
