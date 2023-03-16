@@ -106,7 +106,7 @@
         android:layout_height="25dp"
         android:layout_marginTop="12dp"
         android:gravity="center"
-        android:text="Must Try"
+        android:text="Must Go"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />

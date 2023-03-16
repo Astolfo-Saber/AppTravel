@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.apptravel.Database;
+import com.example.apptravel.database.Database;
 import com.example.apptravel.R;
 import com.example.apptravel.adapter.*;
 import com.example.apptravel.models.*;
@@ -17,33 +17,49 @@ import com.example.apptravel.models.*;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView recycleviewPlacemustgo;
     private Database db;
     private PlaceAdapter placeAdapter;
     private List<Place> ListPlace;
+    private RecyclerView recycleviewPlacemustgo;
     private RecyclerView recycleviewPlaceexplore;
     private PlaceExploreAdapter placeExploreAdapter;
     private ImageView imgPlace;
     private ImageView imgFood;
     private ImageView imgHomeStay;
+    private ImageView imgMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+        addData();
+        addEvent();
+    }
 
+    private void init(){
         recycleviewPlaceexplore = findViewById(R.id.recycleviewexpore);
         recycleviewPlacemustgo = findViewById(R.id.recycleviewmustgo);
+        imgPlace = findViewById(R.id.Place);
+        imgFood = findViewById(R.id.Food);
+        imgHomeStay = findViewById(R.id.HomeStay);
+        imgMenu = findViewById(R.id.Menu);
+    }
+
+    private void addData(){
         db = new Database(this,"AppTravel",null,1);
         ListPlace = db.getAllPlace();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
         LinearLayoutManager linearLayoutManagerPlaceExplore = new LinearLayoutManager(this, recycleviewPlaceexplore.HORIZONTAL,false);
-        recycleviewPlacemustgo.setLayoutManager(linearLayoutManager);
-        recycleviewPlaceexplore.setLayoutManager(linearLayoutManagerPlaceExplore);
         placeAdapter = new PlaceAdapter(this,ListPlace);
         placeExploreAdapter = new PlaceExploreAdapter(this,ListPlace);
+        recycleviewPlacemustgo.setLayoutManager(linearLayoutManager);
+        recycleviewPlaceexplore.setLayoutManager(linearLayoutManagerPlaceExplore);
         recycleviewPlacemustgo.setAdapter(placeAdapter);
         recycleviewPlaceexplore.setAdapter(placeExploreAdapter);
-        imgPlace = findViewById(R.id.Place);
+    }
+
+    private void addEvent(){
         imgPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        imgFood = findViewById(R.id.Food);
+
         imgFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        imgHomeStay = findViewById(R.id.HomeStay);
+
         imgHomeStay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

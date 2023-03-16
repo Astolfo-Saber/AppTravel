@@ -1,4 +1,4 @@
-package com.example.apptravel;
+package com.example.apptravel.database;
 
 import android.content.Context;
 import android.database.Cursor;
