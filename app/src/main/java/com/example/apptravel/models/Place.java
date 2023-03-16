@@ -6,12 +6,12 @@ public class Place {
     private String address;
     private String image;
     private String detail;
-    private String cityId;
+    private int cityId;
 
     public Place() {
     }
 
-    public Place(int placeId, String placeName, String address, String image, String detail, String cityId) {
+    public Place(int placeId, String placeName, String address, String image, String detail, int cityId) {
         this.placeId = placeId;
         this.placeName = placeName;
         this.address = address;
@@ -40,7 +40,7 @@ public class Place {
         return detail;
     }
 
-    public String getCityId() {
+    public int getCityId() {
         return cityId;
     }
 
@@ -64,7 +64,7 @@ public class Place {
         this.detail = detail;
     }
 
-    public void setCityId(String cityId) {
+    public void setCityId(int cityId) {
         this.cityId = cityId;
     }
 }
