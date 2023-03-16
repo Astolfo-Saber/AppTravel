@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.example.apptravel.Database;
+import com.example.apptravel.database.Database;
 import com.example.apptravel.R;
 import com.example.apptravel.adapter.PlaceAllAdapter;
 import com.example.apptravel.models.Place;
@@ -32,14 +32,29 @@ public class AllPlaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item_all);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        init();
+        addData();
+        addEvent();
+    }
+
+    private void init(){
         recycleviewPlace = findViewById(R.id.recycleviewallplace);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-        db = new Database(this,"AppTravel",null,1);
-        ListPlace = db.getAllPlace();
-        recycleviewPlace.setLayoutManager(linearLayoutManager);
-        placeAllAdapter = new PlaceAllAdapter(this,ListPlace);
-        recycleviewPlace.setAdapter(placeAllAdapter);
         imgHome = findViewById(R.id.Home);
+        imgFood = findViewById(R.id.Food);
+        imgHomeStay = findViewById(R.id.HomeStay);
+        imgMenu = findViewById(R.id.Menu);
+    }
+
+    private void addData(){
+        db = new Database(this,"AppTravel",null,1);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        ListPlace = db.getAllPlace();
+        placeAllAdapter = new PlaceAllAdapter(this,ListPlace);
+        recycleviewPlace.setLayoutManager(linearLayoutManager);
+        recycleviewPlace.setAdapter(placeAllAdapter);
+    }
+
+    private void addEvent(){
         imgHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +63,7 @@ public class AllPlaceActivity extends AppCompatActivity {
                 finish();
             }
         });
-        imgFood = findViewById(R.id.Food);
+
         imgFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +72,7 @@ public class AllPlaceActivity extends AppCompatActivity {
                 finish();
             }
         });
-        imgHomeStay = findViewById(R.id.HomeStay);
+
         imgHomeStay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

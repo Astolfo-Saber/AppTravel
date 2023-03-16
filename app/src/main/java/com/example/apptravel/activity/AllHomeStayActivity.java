@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.example.apptravel.Database;
+import com.example.apptravel.database.Database;
 import com.example.apptravel.R;
 import com.example.apptravel.adapter.HomeStayAdapter;
 import com.example.apptravel.models.HomeStay;
@@ -24,22 +24,37 @@ public class AllHomeStayActivity extends AppCompatActivity {
     private HomeStayAdapter homeStayAdapter;
     private ImageView imgHome;
     private ImageView imgFood;
-    private ImageView imgMenu;
     private ImageView imgPlace;
+    private ImageView imgMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_all);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        init();
+        addData();
+        addEvent();
+    }
+
+    private void init(){
         recycleviewHomeStay = findViewById(R.id.recycleviewallplace);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-        db = new Database(this,"AppTravel",null,1);
-        ListHomeStay = db.getAllHomeStay();
-        recycleviewHomeStay.setLayoutManager(linearLayoutManager);
-        homeStayAdapter = new HomeStayAdapter(this,ListHomeStay);
-        recycleviewHomeStay.setAdapter(homeStayAdapter);
         imgHome = findViewById(R.id.Home);
+        imgPlace = findViewById(R.id.Place);
+        imgFood = findViewById(R.id.Food);
+        imgMenu = findViewById(R.id.Menu);
+    }
+
+    private void addData(){
+        db = new Database(this,"AppTravel",null,1);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        ListHomeStay = db.getAllHomeStay();
+        homeStayAdapter = new HomeStayAdapter(this,ListHomeStay);
+        recycleviewHomeStay.setLayoutManager(linearLayoutManager);
+        recycleviewHomeStay.setAdapter(homeStayAdapter);
+    }
+
+    private void addEvent(){
         imgHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +63,7 @@ public class AllHomeStayActivity extends AppCompatActivity {
                 finish();
             }
         });
-        imgPlace = findViewById(R.id.Place);
+
         imgPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +72,7 @@ public class AllHomeStayActivity extends AppCompatActivity {
                 finish();
             }
         });
-        imgFood = findViewById(R.id.Food);
+
         imgFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
