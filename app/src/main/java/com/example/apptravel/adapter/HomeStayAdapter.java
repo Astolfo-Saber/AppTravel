@@ -1,6 +1,8 @@
 package com.example.apptravel.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.apptravel.R;
+import com.example.apptravel.activity.DetailsActivity;
 import com.example.apptravel.models.Food;
 import com.example.apptravel.models.HomeStay;
 import com.example.apptravel.models.Place;
@@ -46,7 +49,17 @@ public class HomeStayAdapter extends RecyclerView.Adapter<HomeStayAdapter.HomeSt
         holder.HomeStay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context, DetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("Id", "HOMESTAY");
+                bundle.putString("Name",homeStay.getHomeStayName());
+                bundle.putString("Address",homeStay.getAddress());
+                bundle.putString("Detail",homeStay.getDetail());
+                bundle.putString("ImageUrl",homeStay.getImage());
+                bundle.putString("Price",homeStay.getPrice());
+                bundle.putString("Contact",homeStay.getContact());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
             }
         });
     }
