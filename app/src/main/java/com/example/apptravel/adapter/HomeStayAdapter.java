@@ -56,6 +56,11 @@ public class HomeStayAdapter extends RecyclerView.Adapter<HomeStayAdapter.HomeSt
         return 0;
     }
 
+    public void filterHomeStay (List<HomeStay> filterHomeStay) {
+        ListHomeStay = filterHomeStay;
+        notifyDataSetChanged();
+    }
+
     public class HomeStayViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgHomeStay;
         private TextView txtHomeStayName;

@@ -55,6 +55,10 @@ public class PlaceAllAdapter extends RecyclerView.Adapter<PlaceAllAdapter.PlaceA
         return 0;
     }
 
+    public void filterPlace (List<Place> filterPlace) {
+        ListPlace = filterPlace;
+        notifyDataSetChanged();
+    }
 
     public class PlaceAllViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgPlace;
