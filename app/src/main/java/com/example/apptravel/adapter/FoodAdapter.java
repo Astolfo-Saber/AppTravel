@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.apptravel.R;
 import com.example.apptravel.activity.MainActivity;
 import com.example.apptravel.models.Food;
@@ -38,7 +39,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         Food food =ListFood.get(position);
         if (food == null)
             return;
-        holder.imageFood.setImageResource(context.getResources().getIdentifier(food.getImage(),"drawable",context.getPackageName()));
+        //holder.imageFood.setImageResource(context.getResources().getIdentifier(food.getImage(),"drawable",context.getPackageName()));
+        Glide.with(context).load(food.getImage()).into(holder.imageFood);
         holder.txtFoodName.setText(food.getFoodName());
         holder.txtFoodAddress.setText(food.getAddress());
         holder.Food.setOnClickListener(new View.OnClickListener() {

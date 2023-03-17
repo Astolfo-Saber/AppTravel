@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.apptravel.R;
 import com.example.apptravel.models.Place;
 
@@ -37,7 +38,8 @@ public class PlaceAllAdapter extends RecyclerView.Adapter<PlaceAllAdapter.PlaceA
         Place place =ListPlace.get(position);
         if (place == null)
             return;
-        holder.imgPlace.setImageResource(context.getResources().getIdentifier(place.getAvatar(),"drawable",context.getPackageName()));
+        //holder.imgPlace.setImageResource(context.getResources().getIdentifier(place.getAvatar(),"drawable",context.getPackageName()));
+        Glide.with(context).load(place.getImage()).into(holder.imgPlace);
         holder.txtNamePlace.setText(place.getPlaceName());
         holder.txtPlaceAddress.setText(place.getAddress());
         holder.Place.setOnClickListener(new View.OnClickListener() {

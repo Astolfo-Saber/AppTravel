@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.apptravel.R;
 import com.example.apptravel.models.Food;
 import com.example.apptravel.models.HomeStay;
@@ -38,7 +39,8 @@ public class HomeStayAdapter extends RecyclerView.Adapter<HomeStayAdapter.HomeSt
         HomeStay homeStay =ListHomeStay.get(position);
         if (homeStay == null)
             return;
-        holder.imgHomeStay.setImageResource(context.getResources().getIdentifier(homeStay.getImage(),"drawable",context.getPackageName()));
+        //holder.imgHomeStay.setImageResource(context.getResources().getIdentifier(homeStay.getImage(),"drawable",context.getPackageName()));
+        Glide.with(context).load(homeStay.getImage()).into(holder.imgHomeStay);
         holder.txtHomeStayName.setText(homeStay.getHomeStayName());
         holder.txtHomeStayAddress.setText(homeStay.getAddress());
         holder.HomeStay.setOnClickListener(new View.OnClickListener() {

@@ -5,6 +5,7 @@ public class HomeStay {
     private String homeStayName;
     private String address;
     private String image;
+    private String price;
     private String detail;
     private String contact;
     private int cityId;
@@ -12,11 +13,13 @@ public class HomeStay {
     public HomeStay(){
 
     }
-    public HomeStay(int homeStayId, String homeStayName, String address, String image, String detail, String contact, int cityId) {
+
+    public HomeStay(int homeStayId, String homeStayName, String address, String image, String price, String detail, String contact, int cityId) {
         this.homeStayId = homeStayId;
         this.homeStayName = homeStayName;
         this.address = address;
         this.image = image;
+        this.price = price;
         this.detail = detail;
         this.contact = contact;
         this.cityId = cityId;
@@ -36,6 +39,10 @@ public class HomeStay {
 
     public String getImage() {
         return image;
+    }
+
+    public String getPrice() {
+        return price;
     }
 
     public String getDetail() {
@@ -64,6 +71,10 @@ public class HomeStay {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public void setDetail(String detail) {

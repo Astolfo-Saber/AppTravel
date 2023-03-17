@@ -5,17 +5,19 @@ public class Food {
     private String foodName;
     private String address;
     private String image;
+    private String price;
     private String detail;
     private int cityId;
 
     public Food() {
     }
 
-    public Food(int foodId, String foodName, String address, String image, String detail, int cityId) {
+    public Food(int foodId, String foodName, String address, String image, String price, String detail, int cityId) {
         this.foodId = foodId;
         this.foodName = foodName;
         this.address = address;
         this.image = image;
+        this.price = price;
         this.detail = detail;
         this.cityId = cityId;
     }
@@ -34,6 +36,10 @@ public class Food {
 
     public String getImage() {
         return image;
+    }
+
+    public String getPrice() {
+        return price;
     }
 
     public String getDetail() {
@@ -58,6 +64,10 @@ public class Food {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public void setDetail(String detail) {

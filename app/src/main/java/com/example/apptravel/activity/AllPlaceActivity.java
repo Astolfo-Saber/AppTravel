@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.apptravel.database.Database;
 import com.example.apptravel.R;
@@ -49,6 +50,7 @@ public class AllPlaceActivity extends AppCompatActivity {
         imgHomeStay = findViewById(R.id.HomeStay);
         imgMenu = findViewById(R.id.Menu);
         etSearch = findViewById(R.id.txtSearchAllPlace);
+
     }
 
     private void addData(){
