@@ -22,7 +22,7 @@
             android:layout_marginStart="181dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="175dp"
-            android:text="Welcome"
+            android:text="AppTraveller"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="21dp"
         android:ems="10"
-        android:hint="Search"
+        android:hint="Tìm kiếm"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -48,19 +48,20 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleviewallplace"
-        android:layout_width="410dp"
-        android:layout_height="534dp"
+        android:layout_width="405dp"
+        android:layout_height="495dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="3dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSearchAllPlace" />
 
     <LinearLayout
-        android:layout_width="409dp"
+        android:layout_width="405dp"
         android:layout_height="42dp"
+        android:background="@android:color/holo_green_light"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,31 +69,31 @@
 
         <ImageView
             android:id="@+id/Home"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_home_50___" />
+            app:srcCompat="@drawable/icons8_home_page_24___" />
 
         <ImageView
             android:id="@+id/Place"
             android:layout_width="74dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_eiffel_tower_30___" />
+            app:srcCompat="@drawable/icons8_address_24___" />
 
         <ImageView
             android:id="@+id/Food"
             android:layout_width="71dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_guacamole_30___" />
+            app:srcCompat="@drawable/icons8_hamburger_24___" />
 
         <ImageView
             android:id="@+id/HomeStay"
             android:layout_width="56dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_5_star_hotel_25___" />
+            app:srcCompat="@drawable/icons8_bedroom_24___" />
 
         <ImageView
             android:id="@+id/Menu"

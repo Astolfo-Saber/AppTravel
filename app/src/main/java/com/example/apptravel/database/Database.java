@@ -55,7 +55,7 @@ public class Database extends SQLiteOpenHelper {
         //tao arraylist<Contact> de tra ve
         if (cursor != null)
             while (cursor.moveToNext()){
-                Food food = new Food(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getInt(5));
+                Food food = new Food(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getInt(6));
                 list.add(food);
             }
         return list;
@@ -71,7 +71,7 @@ public class Database extends SQLiteOpenHelper {
         //tao arraylist<Contact> de tra ve
         if (cursor != null)
             while (cursor.moveToNext()){
-                HomeStay homeStay = new HomeStay(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getInt(6));
+                HomeStay homeStay = new HomeStay(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getInt(7));
                 list.add(homeStay);
             }
         return list;
