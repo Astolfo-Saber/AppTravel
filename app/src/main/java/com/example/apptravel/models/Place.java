@@ -32,7 +32,7 @@ public class Place {
         return address;
     }
 
-    public String getAvatar() {
+    public String getImage() {
         return image;
     }
 
